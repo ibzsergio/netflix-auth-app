@@ -15,11 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-
+''' 
 # backend/urls.py
 from django.contrib import admin
 from django.urls import path, include
+from users.views import home_view
+
 urlpatterns = [
-path('admin/', admin.site.urls),
-path('api/', include('users.urls')),
+    path('', home_view, name='home'),  # Vista de inicio
+    path('admin/', admin.site.urls),
+    path('api/', include('users.urls')),
+]
+'''
+from django.urls import path, include
+urlpatterns = [
+path('api/', include('movies.urls')), # Esto activa todas las rutas de la app movies
 ]
